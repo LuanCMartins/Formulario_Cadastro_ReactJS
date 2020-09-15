@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+//import { render } from 'react-dom';
 import './App.css';
+import { Container, Typography } from '@material-ui/core';
+import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
+import 'fontsource-roboto';
 
 class App extends Component {
   render() {
     return (
-      <h1>Formulário de Cadastro</h1>
+      <Container
+        maxWidth="xs"
+        component="section">
+        <Typography
+          variant="h4"
+          component="h1"
+          align="center">Formulário de Cadastro</Typography>
+        <FormularioCadastro />
+      </Container>
     );
   }
 }

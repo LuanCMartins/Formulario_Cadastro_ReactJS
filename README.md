@@ -1,5 +1,5 @@
 # Formulario de cadastro em ReactJS
-Formulário de cadastro criado utilizando a biblioteca ReactJS. Aulas lecionadas na plataforma Alura Cursos Online
+Formulário de cadastro criado utilizando a biblioteca ReactJS. Aulas através da plataforma Alura Cursos Online
 
 ---
 

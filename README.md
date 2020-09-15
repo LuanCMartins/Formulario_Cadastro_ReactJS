@@ -13,7 +13,6 @@ Formulário de cadastro criado utilizando a biblioteca ReactJS através da plata
 
 * Utilizando design system para agilizar a prototipação: [Material UI](https://material-ui.com/pt/);
 
----
 
 #### Documentação da biblioteca 'Material UI'
 
@@ -21,7 +20,6 @@ Formulário de cadastro criado utilizando a biblioteca ReactJS através da plata
 
 * Estudo sobre a API dos componentes da Material UI;
 
----
 
 #### Forms e Hooks
 

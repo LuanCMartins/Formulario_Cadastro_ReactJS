@@ -5,8 +5,6 @@ Formulário de cadastro criado utilizando a biblioteca ReactJS através da plata
 
 ## Conceitos estudados:
 
----
-
 #### Function Components
 
 * Criando function component no lugar de Class component;

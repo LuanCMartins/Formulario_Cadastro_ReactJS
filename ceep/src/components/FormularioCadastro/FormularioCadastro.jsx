@@ -4,19 +4,23 @@ import { TextField, Button, Checkbox, FormControlLabel } from '@material-ui/core
 function FormularioCadastro() {
     const [nome, setNome] = useState("");
     const [sobrenome, setSobrenome] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [promocoes, setPromocoes] = useState(true);
+    const [novidades, setNovidades] = useState(false);
+
+    {//Não colocar o useState() dentro de chamadas condicionais
+        //Só chamar o hook dentro de funções do React (chamar o useState(), apenas onde tiver no return a arvoer de renderização)
+    }
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
-            console.log(nome + " " + sobrenome);
-        }}>
+            console.log(nome, sobrenome, cpf, promocoes, novidades);
+        }}
+        >
             <TextField
                 value={nome}
                 onChange={event => {
-                    let tempNome = event.target.value
-                    if(tempNome.length >= 4) {
-                        tempNome = tempNome.substr(0,4);
-                    }
-                    setNome(tempNome);
+                    setNome(event.target.value);
                 }}
                 id="name"
                 label="Insira seu Primeiro Nome"
@@ -25,7 +29,7 @@ function FormularioCadastro() {
             />
             <TextField
                 value={sobrenome}
-                onChange={ event => {
+                onChange={event => {
                     setSobrenome(event.target.value);
                 }}
                 id="sobrenome"
@@ -34,6 +38,10 @@ function FormularioCadastro() {
                 fullWidth margin="dense"
             />
             <TextField
+                value={cpf}
+                onChange={event => {
+                    setCpf(event.target.value);
+                }}
                 id="cpf"
                 label="Insira seu CPF"
                 variant="filled"
@@ -41,15 +49,21 @@ function FormularioCadastro() {
             />
             <FormControlLabel
                 control={<Checkbox
-                    defaultChecked={true}
+                    onChange={(event) => {
+                        setPromocoes(event.target.checked);
+                    }}
+                    checked={promocoes}
                     name="promocoes"
                     color="primary"></Checkbox>}
                 label="Promoções"
             />
             <FormControlLabel
                 control={<Checkbox
-                    defaultChecked={true}
-                    name="promocoes"
+                    onChange={(event) => {
+                        setNovidades(event.target.checked);
+                    }}
+                    checked={novidades}
+                    name="novidades"
                     color="primary"></Checkbox>}
                 label="Novidades"
             />

@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { TextField, Button, Checkbox, FormControlLabel } from '@material-ui/core';
 
-function FormularioCadastro() {
+function FormularioCadastro({ aoEnviar, validarCpf }) {
     const [nome, setNome] = useState("");
     const [sobrenome, setSobrenome] = useState("");
     const [cpf, setCpf] = useState("");
     const [promocoes, setPromocoes] = useState(true);
     const [novidades, setNovidades] = useState(false);
+    const [erros, setErros] = useState({
+        cpf:{
+            valido : true, 
+            textoAjuda: ""}
+    });
 
     {//Não colocar o useState() dentro de chamadas condicionais
         //Só chamar o hook dentro de funções do React (chamar o useState(), apenas onde tiver no return a arvoer de renderização)
@@ -14,7 +19,7 @@ function FormularioCadastro() {
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
-            console.log(nome, sobrenome, cpf, promocoes, novidades);
+            aoEnviar({nome, sobrenome, cpf, promocoes, novidades});
         }}
         >
             <TextField
@@ -42,6 +47,12 @@ function FormularioCadastro() {
                 onChange={event => {
                     setCpf(event.target.value);
                 }}
+                onBlur={(event) => {
+                    const valido = validarCpf(event.target.value);
+                    setErros({cpf : valido});
+                }}
+                error={!erros.cpf.valido}
+                helperText={erros.cpf.textoAjuda}
                 id="cpf"
                 label="Insira seu CPF"
                 variant="filled"

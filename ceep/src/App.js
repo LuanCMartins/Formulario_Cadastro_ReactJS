@@ -15,9 +15,31 @@ class App extends Component {
           variant="h4"
           component="h1"
           align="center">Formulário de Cadastro</Typography>
-        <FormularioCadastro />
+        <FormularioCadastro aoEnviar={aoEnviarFormulario} validarCpf={validarCpf}/>
       </Container>
     );
+  }
+}
+
+function aoEnviarFormulario(dados){
+  let cpf = dados.cpf
+  if(cpf.length < 11){
+    console.log("CPF menor que 11 digitos");
+  }
+  console.log(dados);
+}
+
+function validarCpf(cpf){
+  if(cpf.length !== 11){
+    return {
+      valido : false, 
+      textoAjuda : "CPF deve ter 11 dígitos, sem pontos ou traços"
+    }
+  } else {
+    return {
+      valido : true,
+      textoAjuda : ""
+    }
   }
 }
 

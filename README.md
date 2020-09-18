@@ -24,3 +24,15 @@ Formulário de cadastro criado utilizando a biblioteca ReactJS. Aulas através d
 * Aprendendo o conceito de [Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html) com o useState;
 
 * Entendendo a Assincronicidade de função;
+
+* Aprendendo as regras de utilização dos Hooks;
+
+* Recebendo props em um Function Compoent;
+
+* Desconstruindo objeto em JS;
+
+#### Correções finais
+
+* Validação de erros (UI e Back-End);
+
+* Tornar componentes mais reutilizáveis, colocando funções de condicionais fora do componente;

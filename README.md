@@ -46,3 +46,16 @@ Esse curso foi o segundo projeto que desenvolvi em ReactJS, e apesar de ser um p
 A utilização da Material UI também foi de ótima ajuda para que fosse possível manter o foco no uso da biblioteca e não no design do projeto.
 
 Após o fim do curso, sinto confiança em desenvolver um projeto próprio, não tão robusto mas que certamente será de grande ajuda e aprendizado.
+
+---
+# Atualização do formulário iniciada em 28/09/2020
+
+Separação do formulário em quatro etapas, sendo:
+
+* Cadastro de email e senha;
+
+* Cadastro dos dados do usuário;
+
+* Cadastro dos dados de endereço do usuário;
+
+* Mensagem de finalização de cadastro.

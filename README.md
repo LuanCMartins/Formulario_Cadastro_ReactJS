@@ -39,7 +39,7 @@ Formulário de cadastro criado utilizando a biblioteca ReactJS. Aulas através d
 
 ---
 
-## Considerações do autor
+## Considerações finais
 
 Esse curso foi o segundo projeto que desenvolvi em ReactJS, e apesar de ser um projeto simples, foi de ótimo auxílio para expandir um pouco mais o conhecimento sobre a biblioteca.
 

@@ -47,8 +47,10 @@ A utilização da Material UI também foi de ótima ajuda para que fosse possív
 
 Após o fim do curso, sinto confiança em desenvolver um projeto próprio, não tão robusto mas que certamente será de grande ajuda e aprendizado.
 
+Projeto finalizado em 17/09/2020
+
 ---
-# Atualização do formulário iniciada em 28/09/2020
+# Atualização do projeto "Formulario de cadastro em ReactJS" iniciada em 28/09/2020
 
 Separação do formulário em quatro etapas, sendo:
 

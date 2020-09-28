@@ -61,3 +61,7 @@ Separação do formulário em quatro etapas, sendo:
 * Cadastro dos dados de endereço do usuário;
 
 * Mensagem de finalização de cadastro.
+
+---
+
+

@@ -30,6 +30,7 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
                 id="name"
                 label="Insira seu Primeiro Nome"
                 variant="filled"
+                required
                 fullWidth margin="dense"
             />
             <TextField
@@ -40,6 +41,7 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
                 id="sobrenome"
                 label="Insira seu sobrenome"
                 variant="filled"
+                required
                 fullWidth margin="dense"
             />
             <TextField
@@ -56,6 +58,7 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
                 id="cpf"
                 label="Insira seu CPF"
                 variant="filled"
+                required
                 fullWidth margin="dense"
             />
             <FormControlLabel

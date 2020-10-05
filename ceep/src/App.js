@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-//import { render } from 'react-dom';
 import './App.css';
 import { Container, Typography } from '@material-ui/core';
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
-
+import { validarCpf, validarSenha, validarNome } from "./models/Cadastro";
+import validacoesCadastro from './contexts/ValidacoesCadastro';
 
 class App extends Component {
   render() {
     return (
       <Container
-        maxWidth="xs"
+        maxWidth="sm"
         component="section">
         <Typography
           variant="h4"
           component="h1"
           align="center">Formulário de Cadastro</Typography>
-        <FormularioCadastro aoEnviar={aoEnviarFormulario} validarCpf={validarCpf}/>
+        <validacoesCadastro.Provider value={{cpf:validarCpf, senha:validarSenha, nome:validarNome}}>
+          <FormularioCadastro aoEnviar={aoEnviarFormulario}/>
+        </validacoesCadastro.Provider>
       </Container>
     );
   }
@@ -27,20 +29,6 @@ function aoEnviarFormulario(dados){
     console.log("CPF menor que 11 digitos");
   }
   console.log(dados);
-}
-
-function validarCpf(cpf){
-  if(cpf.length !== 11){
-    return {
-      valido : false, 
-      textoAjuda : "CPF deve ter 11 dígitos, sem pontos ou traços"
-    }
-  } else {
-    return {
-      valido : true,
-      textoAjuda : ""
-    }
-  }
 }
 
 export default App;

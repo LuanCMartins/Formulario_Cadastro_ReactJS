@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { TextField, Button, Checkbox, FormControlLabel } from '@material-ui/core';
+import validacoesCadastro from '../../contexts/ValidacoesCadastro';
+import useErros from '../../hooks/useErros';
 
-function DadosPessoais({ aoEnviar, validarCpf }) {
+function DadosPessoais({ aoEnviar }) {
     const [nome, setNome] = useState("");
     const [sobrenome, setSobrenome] = useState("");
     const [cpf, setCpf] = useState("");
     const [promocoes, setPromocoes] = useState(true);
     const [novidades, setNovidades] = useState(false);
-    const [erros, setErros] = useState({
-        cpf:{
-            valido : true, 
-            textoAjuda: ""}
-    });
+    const validacoes = useContext(validacoesCadastro);
+    const [erros, validarCampos, possoEnviar] = useErros(validacoes);
 
     {//Não colocar o useState() dentro de chamadas condicionais
         //Só chamar o hook dentro de funções do React (chamar o useState(), apenas onde tiver no return a arvoer de renderização)
@@ -19,7 +18,9 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
-            aoEnviar({nome, sobrenome, cpf, promocoes, novidades});
+            if (possoEnviar()) {
+                aoEnviar({nome, sobrenome, cpf, promocoes, novidades});
+            }
         }}
         >
             <TextField
@@ -27,7 +28,11 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
                 onChange={event => {
                     setNome(event.target.value);
                 }}
+                onBlur={validarCampos}
+                error={!erros.nome.valido}
+                helperText={erros.nome.textoAjuda}
                 id="name"
+                name = "nome"
                 label="Insira seu Primeiro Nome"
                 variant="filled"
                 required
@@ -39,6 +44,7 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
                     setSobrenome(event.target.value);
                 }}
                 id="sobrenome"
+                name = "sobrenome"
                 label="Insira seu sobrenome"
                 variant="filled"
                 required
@@ -49,13 +55,11 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
                 onChange={event => {
                     setCpf(event.target.value);
                 }}
-                onBlur={(event) => {
-                    const valido = validarCpf(event.target.value);
-                    setErros({cpf : valido});
-                }}
+                onBlur={validarCampos}
                 error={!erros.cpf.valido}
                 helperText={erros.cpf.textoAjuda}
                 id="cpf"
+                name="cpf"
                 label="Insira seu CPF"
                 variant="filled"
                 required
@@ -81,7 +85,7 @@ function DadosPessoais({ aoEnviar, validarCpf }) {
                     color="primary"></Checkbox>}
                 label="Novidades"
             />
-            <Button variant="contained" color="primary" type="submit">Cadastrar</Button>
+            <Button variant="contained" color="primary" type="submit">Próximo</Button>
         </form>
     );
 }
